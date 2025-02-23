@@ -1,5 +1,5 @@
 ---
-description: Testing Rules
+description: Project Rules
 globs: *
 ---
 # Testing and Development Rules
@@ -147,26 +147,35 @@ function App() {
 - Apply useMeo and useCallback whenever it is possible to improve app rendering performance.
 
 ## File Naming Convention
-components/
-├──[component]
-│ ├──features/
-│ └──ui/
-hooks/
-├──[page]
-│ └──page.hooks.ts
-server
-├──[page]
-│ └──page.server.ts
-pages/
-├── api/ # Folder for api
-├── page.tsx # every page file
-lib/
-├── [libfolder] # folder for things like mongodb connection setup or other setups
-docs/
-├── dbschema.md # Database schema
-├── errorlogs.md # Error documentation
-├── planguide.md # Step-by-step guide
-└── testingrules.md # These rules
+src/
+├── app/ # App Router directory
+│   ├── api/ # API routes
+│   │   └── route.ts # API endpoints
+│   ├── (routes)/ # Route groups
+│   │   └── [route]/
+│   │       ├── page.tsx # Page component
+│   │       ├── layout.tsx # Optional layout
+│   │       ├── loading.tsx # Loading UI
+│   │       ├── error.tsx # Error UI
+│   │       └── not-found.tsx # Not found UI
+│   └── layout.tsx # Root layout
+├── components/
+│   └── [component]/
+│       ├── features/ # Feature components
+│       └── ui/ # UI components
+├── hooks/
+│   └── [page]/
+│       └── page.hooks.ts
+├── server-actions/
+│   └── [page]/
+│       └── actions.ts # Server actions
+└── lib/
+    └── [libfolder]/ # Utilities, configs, etc.
+docs/ # Outside src folder
+├── dbschema.md
+├── errorlogs.md
+├── planguide.md
+└── testingrules.md
 
 ## Component Example Structure
 
